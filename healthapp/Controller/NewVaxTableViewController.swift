@@ -7,30 +7,106 @@
 //
 
 import UIKit
+import CoreData
 
-class NewVaxTableViewController: UITableViewController {
+protocol NewVaxTableViewControllerDelegate {
+    func update()
+}
+
+class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
+    
+    @IBOutlet var vaxNameTextField: UITextField!
+    @IBOutlet weak var vaxDoseStepper: UIStepper!
+    @IBOutlet weak var vaxDoseLabel: DoseLabel!
+    @IBOutlet weak var vaxDatePicker: UIDatePicker!
+    @IBOutlet weak var vaxLotTextField: UITextField!
+    
+    var context : NSManagedObjectContext?
+    var vaccine : Vaccine?
+    var delegate : NewVaxTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+        
+        vaxNameTextField.delegate = self
+        vaxNameTextField.attributedPlaceholder = NSAttributedString(string: "Nome da Vacina", attributes: nil)
+//        vaxNameTextField.keyboardAppearance = .dark
+        vaxNameTextField.autocorrectionType = .default
+        vaxNameTextField.returnKeyType = .done
+//        vaxNameTextField.tintColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+        vaxNameTextField.becomeFirstResponder()
+        
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        vaxDoseStepper.minimumValue = 1
+        vaxDoseStepper.maximumValue = 10
+        vaxDoseStepper.isContinuous = true
+        vaxDoseStepper.wraps = true
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func doseChanged(_ sender: UIStepper) {
+        vaxDoseLabel.dose = Int16(sender.value)
+        vaxDoseLabel.text = "\(vaxDoseLabel.dose ?? 1)º"
+    }
+    
+    @IBAction func createVaccine(_ sender: UIButton) {
+        
+        guard let vaxName = vaxNameTextField.text, vaxNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 else { return }
+        
+        guard let vaxLot = vaxLotTextField.text, vaxLotTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 else { return }
+        
+        guard let context = context else { return }
+        
+        self.view.endEditing(true)
+        
+        if vaccine == nil {
+            if let vaccine = NSEntityDescription.insertNewObject(forEntityName: "Vaccine", into: context) as? Vaccine {
+                vaccine.name = vaxName
+                vaccine.lot = vaxLot
+                vaccine.date = vaxDatePicker.date as NSDate
+                vaccine.dose = vaxDoseLabel.dose ?? 1
+                vaccine.id = UUID()
+                
+            }
+        }
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.saveContext()
+        
+        delegate?.update()
+        
+//        performSegue(withIdentifier: "vaccineCreated", sender: nil)
+    }
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G84" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="VaccinationRecord" representedClassName="VaccinationRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="vaccines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vaccine" inverseName="vaccinationRecord" inverseEntity="Vaccine" syncable="YES"/>
+    </entity>
     <entity name="Vaccine" representedClassName="Vaccine" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="lot" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="vaccinationRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinationRecord" inverseName="vaccines" inverseEntity="VaccinationRecord" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Vaccine" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Vaccine" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="VaccinationRecord" positionX="-63" positionY="18" width="128" height="90"/>
     </elements>
 </model>

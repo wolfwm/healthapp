@@ -10,9 +10,47 @@ import UIKit
 import CoreData
 
 class RecordTableViewController: UITableViewController {
+    
+    var context : NSManagedObjectContext?
+//    var vaccinationRecord: VaccinationRecord?
+    var vaccines: [Vaccine?] = []
+    
+    let dateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        if let context = context {
+            do {
+                let vaccines = try context.fetch(Vaccine.fetchRequest())
+                if vaccines.count > 0 {
+                    guard let vaccines = vaccines as? [Vaccine] else {
+                        navigationItem.title = "404"
+                        return
+                    }
+                    
+                    self.vaccines = vaccines
+                    
+                }
+            } catch {
+                print("Error loading Vaccines")
+                return
+            }
+        } else { return }
+        
+        vaccines.sort {
+            ($0?.date!)! as Date > ($1?.date!)! as Date
+        }
+        
+        vaccines.sort {
+            ($0?.name)! < ($1?.name)!
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,12 +63,30 @@ class RecordTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return vaccines.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let vaxCell = tableView.dequeueReusableCell(withIdentifier: "vaxCell") as? VaxCell {
+            
+            guard let vaccine = vaccines[indexPath.row] else { return UITableViewCell() }
+            
+//            vaxCell.backgroundImageView.image = UIImage(named: "Composed Shape Header Cell")
+            
+            vaxCell.vaccine = vaccine
+            
+            vaxCell.vaxNameLabel.text = vaxCell.vaccine?.name
+            vaxCell.vaxDateLabel.date = vaxCell.vaccine?.date as Date?
+            vaxCell.vaxDateLabel.text = dateFormatter.string(from: vaxCell.vaxDateLabel.date!)
+            
+            return vaxCell
+        }
+        return UITableViewCell()
     }
 
     /*
@@ -88,8 +144,8 @@ class RecordTableViewController: UITableViewController {
     }
     */
     
-//    guard let viewController = UIStoryboard (name: "Main", bundle: nil).instantiateInitialViewController(withIdentifier: "Info") as? InfoTableViewController {
-//        guard let navigator = navigationController {
+//    if let viewController = UIStoryboard (name: "Main", bundle: nil).instantiateInitialViewController(withIdentifier: "Info") as? InfoTableViewController {
+//        if let navigator = navigationController {
 //            navigator.pushViewController(viewController, animated: true)
 //        }
 //    }

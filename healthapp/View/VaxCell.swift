@@ -11,7 +11,8 @@ import UIKit
 class VaxCell: UITableViewCell {
     
     @IBOutlet weak var vaxNameLabel: UILabel!
-    @IBOutlet weak var vaxDateLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var vaxDateLabel: DateLabel!
     var vaccine: Vaccine?
+    
 }
