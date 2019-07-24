@@ -46,7 +46,7 @@
         <!--Record Table View Controller-->
         <scene sceneID="4lW-mq-qrE">
             <objects>
-                <tableViewController id="gzi-LN-8ml" customClass="RecordTableViewController" customModule="healthapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Record" id="gzi-LN-8ml" customClass="RecordTableViewController" customModule="healthapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="luC-Ho-aJc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,25 +59,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Composed Shape Header Cell" translatesAutoresizingMaskIntoConstraints="NO" id="6RR-rv-9dX">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Composed Shape Header Cell" translatesAutoresizingMaskIntoConstraints="NO" id="6RR-rv-9dX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hepatite A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-fT-kPr">
-                                            <rect key="frame" x="20" y="18" width="237" height="71"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hepatite A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-fT-kPr">
+                                            <rect key="frame" x="20" y="18" width="114" height="71"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25/12/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixp-k4-uOh" customClass="DateLabel" customModule="healthapp" customModuleProvider="target">
-                                            <rect key="frame" x="265" y="18" width="129" height="71"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25/12/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixp-k4-uOh" customClass="DateLabel" customModule="healthapp" customModuleProvider="target">
+                                            <rect key="frame" x="291" y="25" width="103" height="64"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Ixp-k4-uOh" secondAttribute="bottom" constant="11" id="Dbh-Ka-AmS"/>
+                                        <constraint firstItem="nTN-fT-kPr" firstAttribute="top" secondItem="95X-by-xmI" secondAttribute="top" constant="18" id="G7D-Ag-1rb"/>
+                                        <constraint firstItem="nTN-fT-kPr" firstAttribute="leading" secondItem="95X-by-xmI" secondAttribute="leading" constant="20" id="LOW-xJ-oUf"/>
+                                        <constraint firstAttribute="bottom" secondItem="nTN-fT-kPr" secondAttribute="bottom" constant="11" id="bCL-q5-kXL"/>
+                                        <constraint firstAttribute="bottom" secondItem="6RR-rv-9dX" secondAttribute="bottom" id="bJY-9D-54S"/>
+                                        <constraint firstItem="6RR-rv-9dX" firstAttribute="leading" secondItem="95X-by-xmI" secondAttribute="leading" id="hYH-MQ-IR1"/>
+                                        <constraint firstAttribute="trailing" secondItem="6RR-rv-9dX" secondAttribute="trailing" id="iI9-oZ-hy2"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ixp-k4-uOh" secondAttribute="trailing" constant="20" id="obK-zY-Eli"/>
+                                        <constraint firstItem="6RR-rv-9dX" firstAttribute="top" secondItem="95X-by-xmI" secondAttribute="top" id="u8b-U3-MRH"/>
+                                        <constraint firstItem="Ixp-k4-uOh" firstAttribute="top" secondItem="95X-by-xmI" secondAttribute="top" constant="25" id="ybL-zw-nUz"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="backgroundImageView" destination="6RR-rv-9dX" id="ecb-RQ-8Tu"/>
@@ -94,7 +103,7 @@
                     <navigationItem key="navigationItem" id="mrY-4A-ZTP">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Keo-9U-Zg7">
                             <connections>
-                                <segue destination="LiS-GK-FTC" kind="show" id="3wO-gF-ljm"/>
+                                <segue destination="LiS-GK-FTC" kind="show" identifier="newVax" id="3wO-gF-ljm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -245,9 +254,11 @@
                         <outlet property="vaxDoseStepper" destination="b0D-Eq-6FZ" id="dFr-wS-LT7"/>
                         <outlet property="vaxLotTextField" destination="Kfo-7R-EGG" id="dKG-KI-JHN"/>
                         <outlet property="vaxNameTextField" destination="tWW-SX-279" id="PrH-B0-C6r"/>
+                        <segue destination="Rdj-t3-2Q7" kind="unwind" identifier="unwindToRecord" unwindAction="unwindToRecordWithSegue:" id="fZ7-Mc-4MP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fom-T5-LST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Rdj-t3-2Q7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2560.8695652173915" y="470.75892857142856"/>
         </scene>
@@ -361,6 +372,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="vaxDateLabel" destination="goj-95-Sns" id="dFN-Mn-rSs"/>
+                        <outlet property="vaxDoseLabel" destination="G88-yV-9Xk" id="za0-iL-Po2"/>
+                        <outlet property="vaxLotLabel" destination="PHh-Bm-ePk" id="xfr-Qm-5Aw"/>
+                        <outlet property="vaxNameLabel" destination="mFS-Qo-hCH" id="Fec-eB-jfl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Op-iP-4Mp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

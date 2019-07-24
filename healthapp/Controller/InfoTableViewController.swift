@@ -9,9 +9,27 @@
 import UIKit
 
 class InfoTableViewController: UITableViewController {
+    
+    var vaccine: Vaccine?
+    
+    @IBOutlet weak var vaxNameLabel: UILabel!
+    @IBOutlet weak var vaxDoseLabel: UILabel!
+    @IBOutlet weak var vaxDateLabel: UILabel!
+    @IBOutlet weak var vaxLotLabel: UILabel!
+    
+    let dateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        
+        vaxNameLabel.text = vaccine?.name
+        vaxDoseLabel.text = "\(vaccine?.dose ?? 1)º Dose"
+        vaxDateLabel.text = dateFormatter.string(from: vaccine?.date as! Date)
+        vaxLotLabel.text = vaccine?.lot
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

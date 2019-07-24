@@ -12,6 +12,7 @@ import CoreData
 class RecordTableViewController: UITableViewController {
     
     var context : NSManagedObjectContext?
+    
 //    var vaccinationRecord: VaccinationRecord?
     var vaccines: [Vaccine?] = []
     
@@ -20,7 +21,7 @@ class RecordTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateFormatter.dateStyle = .medium
+        dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "pt_BR")
         
@@ -72,7 +73,7 @@ class RecordTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let vaxCell = tableView.dequeueReusableCell(withIdentifier: "vaxCell") as? VaxCell {
+        if let vaxCell = tableView.dequeueReusableCell(withIdentifier: "VaxCell", for: indexPath) as? VaxCell {
             
             guard let vaccine = vaccines[indexPath.row] else { return UITableViewCell() }
             
@@ -88,6 +89,24 @@ class RecordTableViewController: UITableViewController {
         }
         return UITableViewCell()
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Info") as? InfoTableViewController {
+            viewController.vaccine = vaccines[indexPath.row]
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+    
+//    func refreshVaccines() {
+//        super.viewDidLoad()
+//        super.tableView(super.tableView, numberOfRowsInSection: super.tableView.numberOfRows(inSection: 0))
+//        super.tableView(super.tableView, cellForRowAt: super.tableView)
+//    }
+    
+    @IBAction func unwindToRecord (segue: UIStoryboardSegue) {}
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -143,11 +162,4 @@ class RecordTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-//    if let viewController = UIStoryboard (name: "Main", bundle: nil).instantiateInitialViewController(withIdentifier: "Info") as? InfoTableViewController {
-//        if let navigator = navigationController {
-//            navigator.pushViewController(viewController, animated: true)
-//        }
-//    }
-
 }

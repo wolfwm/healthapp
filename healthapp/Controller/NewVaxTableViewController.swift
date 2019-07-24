@@ -22,6 +22,7 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var vaxLotTextField: UITextField!
     
     var context : NSManagedObjectContext?
+    
     var vaccine : Vaccine?
     var delegate : NewVaxTableViewControllerDelegate?
 
@@ -93,7 +94,18 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
         
         delegate?.update()
         
-//        performSegue(withIdentifier: "vaccineCreated", sender: nil)
+//        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Record") as? RecordTableViewController {
+//            if let segue = UIStoryboardSegue(identifier: "newVax", source: viewController, destination: ) {
+//                if let navigator = navigationController {
+//    //                viewController.refreshVaccines()
+//    //                navigator.popViewController(animated: true)
+//                    navigator.unwind(for: <#T##UIStoryboardSegue#>, towards: viewController)
+//                }
+//            }
+//        }
+        
+        performSegue(withIdentifier: "unwindToRecord", sender: nil)
+        
     }
     
     // MARK: - Table view data source
