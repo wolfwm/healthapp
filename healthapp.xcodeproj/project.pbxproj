@@ -3,27 +3,47 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79B0775222D7C3E0008FDF59 /* RecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B0775122D7C3E0008FDF59 /* RecordTableViewController.swift */; };
+		79B0775422D7C434008FDF59 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B0775322D7C434008FDF59 /* InfoTableViewController.swift */; };
+		79B0775622D7C44B008FDF59 /* NewVaxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B0775522D7C44B008FDF59 /* NewVaxTableViewController.swift */; };
+		79B0775A22D9202D008FDF59 /* VaxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B0775922D9202D008FDF59 /* VaxCell.swift */; };
 		79B87D6522C42FFB002DE03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B87D6422C42FFB002DE03C /* AppDelegate.swift */; };
 		79B87D6722C42FFB002DE03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B87D6622C42FFB002DE03C /* ViewController.swift */; };
 		79B87D6A22C42FFB002DE03C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B87D6822C42FFB002DE03C /* Main.storyboard */; };
-		79B87D6D22C42FFB002DE03C /* healthapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79B87D6B22C42FFB002DE03C /* healthapp.xcdatamodeld */; };
 		79B87D6F22C42FFC002DE03C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B87D6E22C42FFC002DE03C /* Assets.xcassets */; };
 		79B87D7222C42FFC002DE03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B87D7022C42FFC002DE03C /* LaunchScreen.storyboard */; };
+		79D7963E22E6607F001DAB55 /* healthapp.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 79D7963C22E6607F001DAB55 /* healthapp.xcdatamodeld */; };
+		79D7964122E660BC001DAB55 /* Vaccine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7963F22E660BC001DAB55 /* Vaccine+CoreDataClass.swift */; };
+		79D7964222E660BC001DAB55 /* Vaccine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964022E660BC001DAB55 /* Vaccine+CoreDataProperties.swift */; };
+		79D7964522E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964322E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift */; };
+		79D7964622E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964422E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift */; };
+		79D7964822E7847F001DAB55 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964722E7847F001DAB55 /* DateLabel.swift */; };
+		79D7964A22E79C43001DAB55 /* DoseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964922E79C43001DAB55 /* DoseLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79B0775122D7C3E0008FDF59 /* RecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewController.swift; sourceTree = "<group>"; };
+		79B0775322D7C434008FDF59 /* InfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
+		79B0775522D7C44B008FDF59 /* NewVaxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVaxTableViewController.swift; sourceTree = "<group>"; };
+		79B0775922D9202D008FDF59 /* VaxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaxCell.swift; sourceTree = "<group>"; };
 		79B87D6122C42FFB002DE03C /* healthapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = healthapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B87D6422C42FFB002DE03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79B87D6622C42FFB002DE03C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79B87D6922C42FFB002DE03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		79B87D6C22C42FFB002DE03C /* healthapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = healthapp.xcdatamodel; sourceTree = "<group>"; };
 		79B87D6E22C42FFC002DE03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B87D7122C42FFC002DE03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79B87D7322C42FFC002DE03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79D7963D22E6607F001DAB55 /* healthapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = healthapp.xcdatamodel; sourceTree = "<group>"; };
+		79D7963F22E660BC001DAB55 /* Vaccine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		79D7964022E660BC001DAB55 /* Vaccine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		79D7964322E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaccinationRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		79D7964422E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaccinationRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		79D7964722E7847F001DAB55 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
+		79D7964922E79C43001DAB55 /* DoseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +57,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79B0775B22D92131008FDF59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				79D7964322E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift */,
+				79D7964422E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift */,
+				79D7963F22E660BC001DAB55 /* Vaccine+CoreDataClass.swift */,
+				79D7964022E660BC001DAB55 /* Vaccine+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		79B0775C22D92142008FDF59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79B0775922D9202D008FDF59 /* VaxCell.swift */,
+				79D7964722E7847F001DAB55 /* DateLabel.swift */,
+				79D7964922E79C43001DAB55 /* DoseLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		79B0775D22D9214D008FDF59 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				79B87D6622C42FFB002DE03C /* ViewController.swift */,
+				79B0775122D7C3E0008FDF59 /* RecordTableViewController.swift */,
+				79B0775322D7C434008FDF59 /* InfoTableViewController.swift */,
+				79B0775522D7C44B008FDF59 /* NewVaxTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		79B87D5822C42FFB002DE03C = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +108,15 @@
 		79B87D6322C42FFB002DE03C /* healthapp */ = {
 			isa = PBXGroup;
 			children = (
+				79D7963C22E6607F001DAB55 /* healthapp.xcdatamodeld */,
+				79B0775D22D9214D008FDF59 /* Controller */,
+				79B0775C22D92142008FDF59 /* View */,
+				79B0775B22D92131008FDF59 /* Model */,
 				79B87D6422C42FFB002DE03C /* AppDelegate.swift */,
-				79B87D6622C42FFB002DE03C /* ViewController.swift */,
 				79B87D6822C42FFB002DE03C /* Main.storyboard */,
 				79B87D6E22C42FFC002DE03C /* Assets.xcassets */,
 				79B87D7022C42FFC002DE03C /* LaunchScreen.storyboard */,
 				79B87D7322C42FFC002DE03C /* Info.plist */,
-				79B87D6B22C42FFB002DE03C /* healthapp.xcdatamodeld */,
 			);
 			path = healthapp;
 			sourceTree = "<group>";
@@ -103,7 +157,7 @@
 				};
 			};
 			buildConfigurationList = 79B87D5C22C42FFB002DE03C /* Build configuration list for PBXProject "healthapp" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -125,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79D7963E22E6607F001DAB55 /* healthapp.xcdatamodeld in Resources */,
 				79B87D7222C42FFC002DE03C /* LaunchScreen.storyboard in Resources */,
 				79B87D6F22C42FFC002DE03C /* Assets.xcassets in Resources */,
 				79B87D6A22C42FFB002DE03C /* Main.storyboard in Resources */,
@@ -138,8 +193,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79B87D6D22C42FFB002DE03C /* healthapp.xcdatamodeld in Sources */,
+				79B0775222D7C3E0008FDF59 /* RecordTableViewController.swift in Sources */,
+				79D7964A22E79C43001DAB55 /* DoseLabel.swift in Sources */,
+				79B0775422D7C434008FDF59 /* InfoTableViewController.swift in Sources */,
+				79D7964822E7847F001DAB55 /* DateLabel.swift in Sources */,
+				79D7964622E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift in Sources */,
+				79B0775622D7C44B008FDF59 /* NewVaxTableViewController.swift in Sources */,
 				79B87D6722C42FFB002DE03C /* ViewController.swift in Sources */,
+				79D7964522E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift in Sources */,
+				79B0775A22D9202D008FDF59 /* VaxCell.swift in Sources */,
+				79D7964122E660BC001DAB55 /* Vaccine+CoreDataClass.swift in Sources */,
+				79D7964222E660BC001DAB55 /* Vaccine+CoreDataProperties.swift in Sources */,
 				79B87D6522C42FFB002DE03C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,12 +406,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		79B87D6B22C42FFB002DE03C /* healthapp.xcdatamodeld */ = {
+		79D7963C22E6607F001DAB55 /* healthapp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				79B87D6C22C42FFB002DE03C /* healthapp.xcdatamodel */,
+				79D7963D22E6607F001DAB55 /* healthapp.xcdatamodel */,
 			);
-			currentVersion = 79B87D6C22C42FFB002DE03C /* healthapp.xcdatamodel */;
+			currentVersion = 79D7963D22E6607F001DAB55 /* healthapp.xcdatamodel */;
 			path = healthapp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
