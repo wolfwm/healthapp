@@ -8,10 +8,17 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
+protocol RecordTableViewControllerDelegate {
+    func delete (vaccine: Vaccine?)
+}
 
 class RecordTableViewController: UITableViewController {
     
     var context : NSManagedObjectContext?
+    
+    var delegate: RecordTableViewControllerDelegate?
     
 //    var vaccinationRecord: VaccinationRecord?
     var vaccines: [Vaccine?] = []
@@ -21,24 +28,59 @@ class RecordTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                
+                let content = UNMutableNotificationContent()
+                content.title = NSString.localizedUserNotificationString(forKey: "Você está imunizado?", arguments: nil)
+                content.body = NSString.localizedUserNotificationString(forKey: "", arguments: nil)
+                content.sound = UNNotificationSound.default
+                
+//                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: DateComponents.init(calendar: nil, timeZone: nil, era: nil, year: nil, month: nil, day: 1, hour: 12, minute: nil, second: nil, nanosecond: nil, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil), repeats: true)
+                
+                let request = UNNotificationRequest(identifier: "immunizationReminder", content: content, trigger: trigger)
+                
+                let center = UNUserNotificationCenter.current()
+                center.add(request) { (error : Error?) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+            } else {
+                print("Impossível mandar notificação - permissão negada")
+            }
+        }
+        
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "pt_BR")
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         if let context = context {
             do {
                 let vaccines = try context.fetch(Vaccine.fetchRequest())
-                if vaccines.count > 0 {
-                    guard let vaccines = vaccines as? [Vaccine] else {
-                        navigationItem.title = "404"
-                        return
-                    }
-                    
-                    self.vaccines = vaccines
-                    
+                
+                guard let vaccinesTry = vaccines as? [Vaccine] else {
+                    navigationItem.title = "404"
+                    return
                 }
+                
+                self.vaccines = vaccinesTry
+                    
+                
             } catch {
                 print("Error loading Vaccines")
                 return
@@ -52,12 +94,8 @@ class RecordTableViewController: UITableViewController {
         vaccines.sort {
             ($0?.name)! < ($1?.name)!
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -100,13 +138,40 @@ class RecordTableViewController: UITableViewController {
         }
     }
     
-//    func refreshVaccines() {
-//        super.viewDidLoad()
-//        super.tableView(super.tableView, numberOfRowsInSection: super.tableView.numberOfRows(inSection: 0))
-//        super.tableView(super.tableView, cellForRowAt: super.tableView)
-//    }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Remover") { (action, view, success) in
+            
+            let alert = UIAlertController(title: "Tem certeza que deseja remover a Vacina?", message: "Esta ação não pode ser desfeita", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { (action) in
+                guard let vaccine = self.vaccines[indexPath.row] else {return}
+                
+                if self.delegate == nil {
+                    NotificationCenter.default.post(name: Notification.Name("projectEnded"), object: nil)
+                } else {
+                    self.delegate?.delete(vaccine: vaccine)
+                }
+                
+                self.context?.delete(vaccine)
+                self.vaccines.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                appDelegate.saveContext()
+                
+                //            tableView.reloadData()
+                
+                success(true)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in success(false) }))
+            
+            self.present(alert, animated: true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
     
-    @IBAction func unwindToRecord (segue: UIStoryboardSegue) {}
+//    @IBAction func unwindToRecord (segue: UIStoryboardSegue) {}
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

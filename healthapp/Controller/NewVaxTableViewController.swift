@@ -72,7 +72,14 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
         
         guard let vaxName = vaxNameTextField.text, vaxNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 else { return }
         
-        guard let vaxLot = vaxLotTextField.text, vaxLotTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 else { return }
+        let vaxLot: String?
+        
+        if vaxLotTextField.text == nil || vaxLotTextField.text == "" {
+            vaxLot = "–"
+        } else {
+            guard let vaxLotTry = vaxLotTextField.text, vaxLotTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 else { return }
+            vaxLot = vaxLotTry
+        }
         
         guard let context = context else { return }
         
@@ -95,16 +102,16 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
         delegate?.update()
         
 //        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Record") as? RecordTableViewController {
-//            if let segue = UIStoryboardSegue(identifier: "newVax", source: viewController, destination: ) {
-//                if let navigator = navigationController {
-//    //                viewController.refreshVaccines()
-//    //                navigator.popViewController(animated: true)
+//            if let navigator = navigationController {
 //                    navigator.unwind(for: <#T##UIStoryboardSegue#>, towards: viewController)
-//                }
 //            }
 //        }
         
-        performSegue(withIdentifier: "unwindToRecord", sender: nil)
+//        performSegue(withIdentifier: "unwindToRecord", sender: nil)
+        
+        if let navigator = navigationController {
+            navigator.popViewController(animated: true)
+        }
         
     }
     
