@@ -9,9 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var startButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.barStyle = .black
+        
+        startButton.backgroundColor = .clear
+        startButton.setBackgroundImage(UIImage(named: "Hexagonal Shape Button"), for: .normal)
         // Do any additional setup after loading the view.
     }
 
