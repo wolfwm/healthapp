@@ -16,6 +16,8 @@ protocol RecordTableViewControllerDelegate {
 
 class RecordTableViewController: UITableViewController {
     
+    var imageView : UIImageView?
+    
     var context : NSManagedObjectContext?
     
     var delegate: RecordTableViewControllerDelegate?
@@ -50,7 +52,7 @@ class RecordTableViewController: UITableViewController {
                 }
                 
             } else {
-                print("Impossível mandar notificação - permissão negada")
+                print("Cannot send notification - permission denied")
             }
         }
         
@@ -59,6 +61,13 @@ class RecordTableViewController: UITableViewController {
         dateFormatter.locale = Locale(identifier: "pt_BR")
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        tableView.backgroundView = UIImageView(image: UIImage(named: "Drop Shape"))
+        tableView.backgroundView?.contentMode = .scaleAspectFit
+        
+//        imageView?.image = UIImage(named: "Drop Shape")
+//        imageView?.frame = CGRect(origin: tableView.backgroundView!.center, size: CGSize(width: tableView.frame.width/2, height: (tableView.frame.width/2)*1.28))
+//        tableView.addSubview(imageView!)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -146,11 +155,7 @@ class RecordTableViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { (action) in
                 guard let vaccine = self.vaccines[indexPath.row] else {return}
                 
-                if self.delegate == nil {
-                    NotificationCenter.default.post(name: Notification.Name("projectEnded"), object: nil)
-                } else {
-                    self.delegate?.delete(vaccine: vaccine)
-                }
+                self.delegate?.delete(vaccine: vaccine)
                 
                 self.context?.delete(vaccine)
                 self.vaccines.remove(at: indexPath.row)
@@ -159,11 +164,9 @@ class RecordTableViewController: UITableViewController {
                 guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                 appDelegate.saveContext()
                 
-                //            tableView.reloadData()
-                
                 success(true)
             }))
-            alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in success(false) }))
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action) in success(false) }))
             
             self.present(alert, animated: true)
         }
