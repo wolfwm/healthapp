@@ -24,6 +24,7 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
     var context : NSManagedObjectContext?
     
     var vaccine : Vaccine?
+    
     var delegate : NewVaxTableViewControllerDelegate?
 
     override func viewDidLoad() {
