@@ -30,6 +30,8 @@ class RecordTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barStyle = .black
+        
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
@@ -64,10 +66,6 @@ class RecordTableViewController: UITableViewController {
         
         tableView.backgroundView = UIImageView(image: UIImage(named: "Drop Shape"))
         tableView.backgroundView?.contentMode = .scaleAspectFit
-        
-//        imageView?.image = UIImage(named: "Drop Shape")
-//        imageView?.frame = CGRect(origin: tableView.backgroundView!.center, size: CGSize(width: tableView.frame.width/2, height: (tableView.frame.width/2)*1.28))
-//        tableView.addSubview(imageView!)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
