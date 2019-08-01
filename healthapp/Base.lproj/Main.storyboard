@@ -225,6 +225,7 @@
                                                 </label>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="b0D-Eq-6FZ">
                                                     <rect key="frame" x="160" y="98" width="94" height="29"/>
+                                                    <color key="tintColor" red="0.23529411759999999" green="0.54117647059999996" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="doseChanged:" destination="LiS-GK-FTC" eventType="valueChanged" id="3JF-iv-zIB"/>
                                                     </connections>
@@ -232,12 +233,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="dP8-YA-AM8" firstAttribute="trailing" secondItem="1bV-29-p17" secondAttribute="trailingMargin" id="5xF-1I-aLN"/>
-                                                <constraint firstItem="b0D-Eq-6FZ" firstAttribute="leading" secondItem="1bV-29-p17" secondAttribute="leadingMargin" constant="140" id="7Zn-3o-dHg"/>
                                                 <constraint firstItem="dP8-YA-AM8" firstAttribute="top" secondItem="1bV-29-p17" secondAttribute="topMargin" id="9Nz-Ub-8Jc"/>
                                                 <constraint firstItem="dP8-YA-AM8" firstAttribute="leading" secondItem="1bV-29-p17" secondAttribute="leadingMargin" id="CFV-z2-6Y7"/>
                                                 <constraint firstItem="b0D-Eq-6FZ" firstAttribute="top" secondItem="dP8-YA-AM8" secondAttribute="bottom" constant="8" id="FsW-nS-UFK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="b0D-Eq-6FZ" secondAttribute="trailing" constant="140" id="Hym-QH-TeF"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="b0D-Eq-6FZ" secondAttribute="bottom" constant="12" id="eWB-e5-rUA"/>
+                                                <constraint firstItem="b0D-Eq-6FZ" firstAttribute="centerX" secondItem="1bV-29-p17" secondAttribute="centerX" id="rJX-Yp-4at"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
