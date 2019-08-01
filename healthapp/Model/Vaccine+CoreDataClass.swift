@@ -2,7 +2,7 @@
 //  Vaccine+CoreDataClass.swift
 //  healthapp
 //
-//  Created by Wolfgang Walder on 22/07/19.
+//  Created by Wolfgang Walder on 01/08/19.
 //  Copyright © 2019 Wolfgang Walder. All rights reserved.
 //
 //

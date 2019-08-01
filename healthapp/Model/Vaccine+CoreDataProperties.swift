@@ -2,7 +2,7 @@
 //  Vaccine+CoreDataProperties.swift
 //  healthapp
 //
-//  Created by Wolfgang Walder on 22/07/19.
+//  Created by Wolfgang Walder on 01/08/19.
 //  Copyright © 2019 Wolfgang Walder. All rights reserved.
 //
 //
@@ -22,5 +22,6 @@ extension Vaccine {
     @NSManaged public var id: UUID?
     @NSManaged public var lot: String?
     @NSManaged public var name: String?
+    @NSManaged public var vaccinationRecord: VaccinationRecord?
 
 }

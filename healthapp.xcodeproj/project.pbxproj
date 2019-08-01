@@ -16,9 +16,9 @@
 		79B87D6A22C42FFB002DE03C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B87D6822C42FFB002DE03C /* Main.storyboard */; };
 		79B87D6F22C42FFC002DE03C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B87D6E22C42FFC002DE03C /* Assets.xcassets */; };
 		79B87D7222C42FFC002DE03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B87D7022C42FFC002DE03C /* LaunchScreen.storyboard */; };
+		79BE80D022F3838A005ECB6D /* Vaccine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE80CE22F3838A005ECB6D /* Vaccine+CoreDataClass.swift */; };
+		79BE80D122F3838A005ECB6D /* Vaccine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE80CF22F3838A005ECB6D /* Vaccine+CoreDataProperties.swift */; };
 		79D7963E22E6607F001DAB55 /* healthapp.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 79D7963C22E6607F001DAB55 /* healthapp.xcdatamodeld */; };
-		79D7964122E660BC001DAB55 /* Vaccine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7963F22E660BC001DAB55 /* Vaccine+CoreDataClass.swift */; };
-		79D7964222E660BC001DAB55 /* Vaccine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964022E660BC001DAB55 /* Vaccine+CoreDataProperties.swift */; };
 		79D7964522E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964322E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift */; };
 		79D7964622E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964422E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift */; };
 		79D7964822E7847F001DAB55 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964722E7847F001DAB55 /* DateLabel.swift */; };
@@ -37,9 +37,9 @@
 		79B87D6E22C42FFC002DE03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B87D7122C42FFC002DE03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79B87D7322C42FFC002DE03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79BE80CE22F3838A005ECB6D /* Vaccine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		79BE80CF22F3838A005ECB6D /* Vaccine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		79D7963D22E6607F001DAB55 /* healthapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = healthapp.xcdatamodel; sourceTree = "<group>"; };
-		79D7963F22E660BC001DAB55 /* Vaccine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataClass.swift"; sourceTree = "<group>"; };
-		79D7964022E660BC001DAB55 /* Vaccine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		79D7964322E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaccinationRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		79D7964422E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaccinationRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		79D7964722E7847F001DAB55 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
@@ -60,10 +60,10 @@
 		79B0775B22D92131008FDF59 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				79BE80CE22F3838A005ECB6D /* Vaccine+CoreDataClass.swift */,
+				79BE80CF22F3838A005ECB6D /* Vaccine+CoreDataProperties.swift */,
 				79D7964322E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift */,
 				79D7964422E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift */,
-				79D7963F22E660BC001DAB55 /* Vaccine+CoreDataClass.swift */,
-				79D7964022E660BC001DAB55 /* Vaccine+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,13 +197,13 @@
 				79D7964A22E79C43001DAB55 /* DoseLabel.swift in Sources */,
 				79B0775422D7C434008FDF59 /* InfoTableViewController.swift in Sources */,
 				79D7964822E7847F001DAB55 /* DateLabel.swift in Sources */,
+				79BE80D022F3838A005ECB6D /* Vaccine+CoreDataClass.swift in Sources */,
 				79D7964622E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift in Sources */,
 				79B0775622D7C44B008FDF59 /* NewVaxTableViewController.swift in Sources */,
 				79B87D6722C42FFB002DE03C /* ViewController.swift in Sources */,
 				79D7964522E77DED001DAB55 /* VaccinationRecord+CoreDataClass.swift in Sources */,
 				79B0775A22D9202D008FDF59 /* VaxCell.swift in Sources */,
-				79D7964122E660BC001DAB55 /* Vaccine+CoreDataClass.swift in Sources */,
-				79D7964222E660BC001DAB55 /* Vaccine+CoreDataProperties.swift in Sources */,
+				79BE80D122F3838A005ECB6D /* Vaccine+CoreDataProperties.swift in Sources */,
 				79B87D6522C42FFB002DE03C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
