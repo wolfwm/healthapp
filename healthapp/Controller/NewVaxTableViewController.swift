@@ -20,6 +20,7 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var vaxDoseLabel: DoseLabel!
     @IBOutlet weak var vaxDatePicker: UIDatePicker!
     @IBOutlet weak var vaxLotTextField: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
     
     var context : NSManagedObjectContext?
     
@@ -48,11 +49,39 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
         vaxDoseStepper.isContinuous = true
         vaxDoseStepper.wraps = true
         
+        vaxDatePicker.minimumDate = Calendar.current.date(from: DateComponents(calendar: nil, timeZone: nil, era: nil, year: 1796, month: 5, day: 14, hour: nil, minute: nil, second: nil, nanosecond: nil, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil))
+        vaxDatePicker.maximumDate = Date()
+        
+        doneButton.isEnabled = false
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let  char = string.cString(using: String.Encoding.utf8)!
+        
+        let isBackSpace = strcmp(char, "\\b")
+        
+        var currentText = ""
+        
+        if (isBackSpace == -92) {
+            currentText = String(vaxNameTextField.text![..<(vaxNameTextField.text!.index(before: vaxNameTextField.text!.endIndex))])
+        }
+        else {
+            currentText = vaxNameTextField.text! + string
+        }
+        
+        if currentText == "" {
+            doneButton.isEnabled = false
+        } else {
+            doneButton.isEnabled = true
+        }
+        
+        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
