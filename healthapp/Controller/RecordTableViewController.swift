@@ -99,7 +99,7 @@ class RecordTableViewController: UITableViewController {
         }
         
         vaccines.sort {
-            ($0?.name)! < ($1?.name)!
+            ($0?.name)!.lowercased() < ($1?.name)!.lowercased()
         }
         
         tableView.reloadData()

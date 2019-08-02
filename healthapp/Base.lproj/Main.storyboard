@@ -319,6 +319,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneButton" destination="AP4-n1-5rC" id="hMH-kp-13h"/>
                         <outlet property="vaxDatePicker" destination="8FL-Ui-usA" id="tr8-W2-1zw"/>
                         <outlet property="vaxDoseLabel" destination="dP8-YA-AM8" id="ZxU-nS-mtq"/>
                         <outlet property="vaxDoseStepper" destination="b0D-Eq-6FZ" id="dFr-wS-LT7"/>
