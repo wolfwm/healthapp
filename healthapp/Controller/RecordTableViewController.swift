@@ -126,7 +126,7 @@ class RecordTableViewController: UITableViewController {
             
             vaxCell.vaccine = vaccine
             
-            vaxCell.vaxNameLabel.text = vaxCell.vaccine?.name
+            vaxCell.vaxNameLabel.text = vaxCell.vaccine?.name?.truncated(limit: 13)
             vaxCell.vaxDateLabel.date = vaxCell.vaccine?.date as Date?
             vaxCell.vaxDateLabel.text = dateFormatter.string(from: vaxCell.vaxDateLabel.date!)
             
