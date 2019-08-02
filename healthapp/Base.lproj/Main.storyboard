@@ -100,28 +100,28 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Composed Shape Header Cell" translatesAutoresizingMaskIntoConstraints="NO" id="6RR-rv-9dX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hepatite A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-fT-kPr">
-                                            <rect key="frame" x="20" y="18" width="114" height="71"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25/12/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixp-k4-uOh" customClass="DateLabel" customModule="healthapp" customModuleProvider="target">
                                             <rect key="frame" x="291" y="25" width="103" height="64"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hepatite A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-fT-kPr">
+                                            <rect key="frame" x="20" y="22" width="92" height="71"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="nTN-fT-kPr" firstAttribute="top" secondItem="95X-by-xmI" secondAttribute="top" constant="22" id="0cm-90-GCB"/>
                                         <constraint firstAttribute="bottom" secondItem="Ixp-k4-uOh" secondAttribute="bottom" constant="11" id="Dbh-Ka-AmS"/>
-                                        <constraint firstItem="nTN-fT-kPr" firstAttribute="top" secondItem="95X-by-xmI" secondAttribute="top" constant="18" id="G7D-Ag-1rb"/>
                                         <constraint firstItem="nTN-fT-kPr" firstAttribute="leading" secondItem="95X-by-xmI" secondAttribute="leading" constant="20" id="LOW-xJ-oUf"/>
-                                        <constraint firstAttribute="bottom" secondItem="nTN-fT-kPr" secondAttribute="bottom" constant="11" id="bCL-q5-kXL"/>
                                         <constraint firstAttribute="bottom" secondItem="6RR-rv-9dX" secondAttribute="bottom" id="bJY-9D-54S"/>
                                         <constraint firstItem="6RR-rv-9dX" firstAttribute="leading" secondItem="95X-by-xmI" secondAttribute="leading" id="hYH-MQ-IR1"/>
                                         <constraint firstAttribute="trailing" secondItem="6RR-rv-9dX" secondAttribute="trailing" id="iI9-oZ-hy2"/>
                                         <constraint firstAttribute="trailing" secondItem="Ixp-k4-uOh" secondAttribute="trailing" constant="20" id="obK-zY-Eli"/>
+                                        <constraint firstAttribute="bottom" secondItem="nTN-fT-kPr" secondAttribute="bottom" constant="7" id="szX-fh-iWm"/>
                                         <constraint firstItem="6RR-rv-9dX" firstAttribute="top" secondItem="95X-by-xmI" secondAttribute="top" id="u8b-U3-MRH"/>
                                         <constraint firstItem="Ixp-k4-uOh" firstAttribute="top" secondItem="95X-by-xmI" secondAttribute="top" constant="25" id="ybL-zw-nUz"/>
                                     </constraints>
