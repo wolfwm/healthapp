@@ -38,6 +38,7 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
         vaxNameTextField.attributedPlaceholder = NSAttributedString(string: "Nome da Vacina", attributes: nil)
 //        vaxNameTextField.keyboardAppearance = .dark
         vaxNameTextField.autocorrectionType = .default
+        vaxNameTextField.autocapitalizationType = .sentences
         vaxNameTextField.returnKeyType = .done
 //        vaxNameTextField.tintColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
         vaxNameTextField.becomeFirstResponder()

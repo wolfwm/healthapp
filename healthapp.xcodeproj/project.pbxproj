@@ -23,6 +23,7 @@
 		79D7964622E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964422E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift */; };
 		79D7964822E7847F001DAB55 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964722E7847F001DAB55 /* DateLabel.swift */; };
 		79D7964A22E79C43001DAB55 /* DoseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7964922E79C43001DAB55 /* DoseLabel.swift */; };
+		79FABCE922F4CDCE001E2A22 /* String-truncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FABCE822F4CDCE001E2A22 /* String-truncate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		79D7964422E77DED001DAB55 /* VaccinationRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaccinationRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		79D7964722E7847F001DAB55 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
 		79D7964922E79C43001DAB55 /* DoseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseLabel.swift; sourceTree = "<group>"; };
+		79FABCE822F4CDCE001E2A22 /* String-truncate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-truncate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				79B87D6E22C42FFC002DE03C /* Assets.xcassets */,
 				79B87D7022C42FFC002DE03C /* LaunchScreen.storyboard */,
 				79B87D7322C42FFC002DE03C /* Info.plist */,
+				79FABCE822F4CDCE001E2A22 /* String-truncate.swift */,
 			);
 			path = healthapp;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79B0775222D7C3E0008FDF59 /* RecordTableViewController.swift in Sources */,
+				79FABCE922F4CDCE001E2A22 /* String-truncate.swift in Sources */,
 				79D7964A22E79C43001DAB55 /* DoseLabel.swift in Sources */,
 				79B0775422D7C434008FDF59 /* InfoTableViewController.swift in Sources */,
 				79D7964822E7847F001DAB55 /* DateLabel.swift in Sources */,
