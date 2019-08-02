@@ -68,7 +68,7 @@ class NewVaxTableViewController: UITableViewController, UITextFieldDelegate {
         
         var currentText = ""
         
-        if (isBackSpace == -92) {
+        if (isBackSpace == -92) && vaxNameTextField.text != "" {
             currentText = String(vaxNameTextField.text![..<(vaxNameTextField.text!.index(before: vaxNameTextField.text!.endIndex))])
         }
         else {
