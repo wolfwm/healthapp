@@ -150,7 +150,7 @@ class RecordTableViewController: UITableViewController {
             
             let alert = UIAlertController(title: "Tem certeza que deseja remover a Vacina?", message: "Esta ação não pode ser desfeita", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { (action) in
+            alert.addAction(UIAlertAction(title: "Remover", style: .destructive, handler: { (action) in
                 guard let vaccine = self.vaccines[indexPath.row] else {return}
                 
                 self.delegate?.delete(vaccine: vaccine)
